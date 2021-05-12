@@ -1,0 +1,207 @@
+@import url(assets/reset.css);
+* {
+    outline: 1px solid black;
+}
+body > header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+main {
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+a img {
+    height: 1em;
+}
+section {
+    margin-bottom: 2rem;
+}
+.current {
+    display: flex;
+}
+.display {
+    flex: 2
+}
+.display > header {
+    display: flex;
+    justify-content: space-between;
+}
+.display > header > h2 {
+     margin: 0;
+     font-size: 1rem;
+}
+.display .race {
+    margin: 0 2rem;
+}
+.display .race .arena {
+    position: relative;
+}
+.display .race .arena::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2rem;
+    width: 2rem;
+    height: 100%;
+    background: yellow;
+}
+.display .race .arena::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -2rem;
+    width: 2rem;
+    height: 100%;
+    background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
+    background-size: 1rem 1rem;
+    background-position: 0 0, 0 .5rem, .5rem -.5rem, -.5rem 0;
+}
+
+.display .race .arena .lane {
+    position: relative;
+    height: 2rem;
+}
+.display .race .arena .lane:nth-child(odd) {
+    background-color: lightblue
+}
+.display .race .arena .lane:nth-child(even) {
+    background-color: lightgray
+}
+.display .race .arena .lane svg {
+    position: absolute;
+    height: 100%;
+    transform: translateX(-100%);
+}
+.display .race .timeline {
+    display: flex;
+    height: .25rem;
+    background-color: black;
+    margin: 1rem 0;
+    justify-content: space-between;
+}
+.display .race .timeline .leg {
+    position: relative;
+    height: 1rem;
+    width: 1rem;
+    background-color: black;
+    transform: translateY(-.375rem);
+}
+.display .race .timeline .leg .tooltip {
+    visibility: hidden;
+    position: absolute;
+    width: 16rem;
+    padding-top: 1.5rem;
+    left: -1rem;
+    color: white;
+}
+.display .race .timeline .leg:hover .tooltip {
+    visibility: visible
+}
+.display .race .timeline .leg .tooltip > * {
+    background: black;
+}
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.info .race {
+    display: flex;
+    justify-content: space-between;
+    background: lightgreen;
+}
+.info .snail {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: lightcoral;
+}
+.info .snail table * {
+    outline: none;
+}
+.info .snail tr > * {
+    border: 1px solid black;
+}
+#now button.more {
+    display: block;
+    width: 100%;
+}
+
+#champions h2 {
+    font-size: 2.5rem;
+}
+.ranked {
+    white-space: nowrap;
+    overflow-x:auto;
+}
+.ranked .champion {
+    display: inline-flex;
+    align-items: center;
+    height: 10rem;
+}
+.ranked .champion .rank {
+    font-size: 3rem;
+}
+.ranked .champion .snail {
+    width: 8rem;
+    position: relative;
+}
+
+#wins h2 {
+    font-size: 2.5rem;
+}
+#wins .listing div.snail {
+    position: relative;
+}
+#wins .listing div.snail::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5rem;
+    height: 5rem;
+    background-image: url(assets/crown.svg);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: 50% 35%;
+    transform: rotate(-15deg)
+}
+
+#transactions h2 {
+    font-size: 2.5rem;
+}
+.listing {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .25rem
+}
+.listing div.snail {
+    width: 10rem;
+    margin: .25rem;
+}
+.listing .snail .transaction {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ranked .champion .snail .tooltip,
+.listing div.snail .tooltip {
+    visibility: hidden;
+    position: absolute;
+    top: -11rem;
+    height: 10rem;
+    width: 16rem;
+    background: black;
+    color: white;
+}
+.ranked .champion .snail:hover .tooltip,
+.listing div.snail:hover .tooltip {
+    visibility: visible;
+}
