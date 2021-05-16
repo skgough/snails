@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+label {
+    user-select: none;
+}
+.output {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+.output table {
+    border-collapse: collapse;
+}
+.output table tr:nth-child(odd) td {
+    background: hsl(220, 15%, 95%)
+}
+.output table tr:nth-child(even) td {
+    background: hsl(220, 15%, 85%)
+}
+.output table td {
+    line-height: 1.5;
+}
+.output .leg {
+    margin-top: auto;
+    padding: .5em 1em;
+    max-width: 800px;
+    display: flex;
+}
+.output .leg input[type=range] {
+    flex: 1;
+}
+.output .messages {
+    height: 400px;
+    max-height: 50vh;
+    overflow: auto;
+    background: #333;
+    color: white;
+    padding: 1em;
+}
+.output .messages code {
+    margin: 0;
+    line-height: 1.5;
+    display: block;
+}
+.modifiers {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 1em;
+    max-width: 500px;
+    overflow-y: auto;
+}
+.modifiers > div {
+    flex: 1;
+}
+.modifiers > div h4 {
+    margin: 0 0 .5em 0;
+}
