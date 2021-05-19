@@ -1,7 +1,7 @@
-import { coachingStrategies } from "../modules/coachingStrategies.js"
-import { snailTypes } from "../modules/snailTypes.js"
-import { goToLeg } from "../modules/functions.js"
-import { numberOfLegs } from "../modules/numLegs.js"
+import { goToLeg } from "../functions.js"
+const numberOfLegs = await get('../parameters/numLegs.json')
+let coachingStrategies = await get('../parameters/coachingStrategies.json')
+let snailTypes = await get('../parameters/snailTypes.json')
 
 let leg = 0
 
@@ -47,6 +47,35 @@ const pageSetup = () => {
         option.innerText = type.name
         stSelect.appendChild(option);
     }
+
+    const csApply = document.querySelector('.coaching-strategies button.apply')
+    const stApply = document.querySelector('.snail-types button.apply')
+    csApply.addEventListener('click', () => {
+        let data = { 
+            target: '/parameters/coachingStrategies.json',
+            content: coachingStrategies
+        }
+        fetch('/', {
+          method: "POST", 
+          body: JSON.stringify(data)
+        }).then(res => res.text().then(text => console.log(text)))
+        location.reload()
+    })
+    stApply.addEventListener('click', () => {
+        let data = {
+            target: '/parameters/snailTypes.json',
+            content: snailTypes
+        }
+        fetch('/', {
+          method: "POST", 
+          body: JSON.stringify(data)
+        }).then(res => res.text().then(text => console.log(text)))
+        location.reload()
+    })
+}
+
+async function get(fileName) {
+    return fetch(fileName).then(res => res.json())
 }
 
 const logger = (text) => {
@@ -55,10 +84,6 @@ const logger = (text) => {
     code.innerText = text
     messages.appendChild(code)
     messages.scrollTop = messages.scrollHeight
-}
-
-const copy = (text) => {
-    navigator.clipboard.writeText(text)
 }
 
 pageSetup()

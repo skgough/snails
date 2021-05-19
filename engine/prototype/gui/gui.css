@@ -6,6 +6,8 @@ body {
 }
 label {
     user-select: none;
+    font-size: .83333rem;
+    text-align: center;
 }
 .output {
     flex: 2;
@@ -29,6 +31,7 @@ label {
     padding: .5em 1em;
     max-width: 800px;
     display: flex;
+    align-items: center;
 }
 .output .leg input[type=range] {
     flex: 1;
@@ -49,14 +52,23 @@ label {
 .modifiers {
     display: flex;
     flex-direction: column;
+    border-left: 2px solid black;
     flex: 1;
-    padding: 0 1em;
+    padding: 1em;
     max-width: 500px;
     overflow-y: auto;
 }
+.modifiers h3 {
+    margin: 0
+}
 .modifiers > div {
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 .modifiers > div h4 {
-    margin: 0 0 .5em 0;
+    margin: .5em 0;
+}
+.modifiers button.apply {
+    margin-top: auto;
 }
