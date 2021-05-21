@@ -1,0 +1,15 @@
+acceleration factor function: (-2/3 * ( .5w + w^5 )) + 1
+where w = weight/50 - 1
+
+.5 scales the rate at which acceleration increases within the normal range of weights (25 - 75)
+whereas the exponent scales the rate at the extreme edges.
+Low and high weights are rare (following a normal distribution) so they scale sharply with rarity
+
+the 2/3 scales the range into 1 to -1 for the output function and the plus 1 sets the range to 2 to 0.
+
+to change these weights, for the scalar, do whatever and then the normalizer n (the 2/3 component) will be
+         1
+n = ----------
+    scalar + 1
+
+the exponent needs to be odd. large exponents create a sharper cutoff (less range, steeper slope).

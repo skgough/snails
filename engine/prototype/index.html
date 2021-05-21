@@ -5,102 +5,288 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Snails</title>
+
+    <script src="./gui/prism.js"></script>
+    <link rel='stylesheet' href='./gui/prism.css'>
+
     <link rel="stylesheet" href="./gui/gui.css">
+    <link rel="shortcut icon" href="./favicon.png">
     <script defer type="module" src="./gui/gui.js"></script>
 </head>
 
 <body>
     <div class="output">
-        <table class="results">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Snail type</th>
-                    <th>Last event</th>
-                    <th>Velocity</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>type</td>
-                    <td>event</td>
-                    <td>Mach 2.5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>type</td>
-                    <td>event</td>
-                    <td>Mach 2.5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>type</td>
-                    <td>event</td>
-                    <td>Mach 2.5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>type</td>
-                    <td>event</td>
-                    <td>Mach 2.5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>type</td>
-                    <td>event</td>
-                    <td>Mach 2.5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>type</td>
-                    <td>event</td>
-                    <td>Mach 2.5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>type</td>
-                    <td>event</td>
-                    <td>Mach 2.5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>type</td>
-                    <td>event</td>
-                    <td>Mach 2.5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>type</td>
-                    <td>event</td>
-                    <td>Mach 2.5</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class='results both'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Snail type</th>
+                        <th>Last event</th>
+                        <th>Velocity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>type</td>
+                        <td>event</td>
+                        <td>Mach 2.5</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>type</td>
+                        <td>event</td>
+                        <td>Mach 2.5</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>type</td>
+                        <td>event</td>
+                        <td>Mach 2.5</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>type</td>
+                        <td>event</td>
+                        <td>Mach 2.5</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>type</td>
+                        <td>event</td>
+                        <td>Mach 2.5</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>type</td>
+                        <td>event</td>
+                        <td>Mach 2.5</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>type</td>
+                        <td>event</td>
+                        <td>Mach 2.5</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>type</td>
+                        <td>event</td>
+                        <td>Mach 2.5</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>type</td>
+                        <td>event</td>
+                        <td>Mach 2.5</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>type</td>
+                        <td>event</td>
+                        <td>Mach 2.5</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="race">
+                <div class='header'>Race</div>
+                <div class="lane">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="snail" style="left: 26%;" viewBox="0 0 512 512">
+                        <defs></defs>
+                        <path
+                            d="M512 181a32 32 0 10-43 36v18c-7-4-15-6-23-6-10 0-21 3-30 9v-21a32 32 0 10-21 0v92l-1 5c-17-6-30-41-41-70l-1-3c-19-52-68-140-179-140C77 101 0 178 0 273c0 76 62 137 139 138h230c68 0 122-54 122-124v-14l-1-1h1v-55c14-5 23-20 21-36zm-117 6c0-6 4-11 10-11s11 5 11 11c0 5-5 10-11 10s-10-5-10-10zM205 389c29-21 47-55 47-91 0-52-42-93-93-93-42 0-76 34-76 76 0 36 26 63 61 63 15 0 30-10 36-24 4-8 8-24-9-43-4-5-11-5-15-1-5 4-5 10-1 15 7 7 9 14 6 20-3 7-12 11-17 11-23 0-40-17-40-41 1-30 25-55 55-55 40 0 72 32 72 72 0 50-41 91-92 91-65 0-118-52-118-116 0-83 68-150 152-150 98 0 142 79 159 125l1 3c13 35 28 75 56 83-15 30-54 55-106 55h-78zm264-102c0 57-44 102-99 102h-6c31-18 52-48 52-80v-36c0-13 16-22 31-22 14 0 22 8 22 22v14zm11-90c-6 0-11-5-11-10 0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="lane">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="snail" style="left: 26%;" viewBox="0 0 512 512">
+                        <defs></defs>
+                        <path
+                            d="M512 181a32 32 0 10-43 36v18c-7-4-15-6-23-6-10 0-21 3-30 9v-21a32 32 0 10-21 0v92l-1 5c-17-6-30-41-41-70l-1-3c-19-52-68-140-179-140C77 101 0 178 0 273c0 76 62 137 139 138h230c68 0 122-54 122-124v-14l-1-1h1v-55c14-5 23-20 21-36zm-117 6c0-6 4-11 10-11s11 5 11 11c0 5-5 10-11 10s-10-5-10-10zM205 389c29-21 47-55 47-91 0-52-42-93-93-93-42 0-76 34-76 76 0 36 26 63 61 63 15 0 30-10 36-24 4-8 8-24-9-43-4-5-11-5-15-1-5 4-5 10-1 15 7 7 9 14 6 20-3 7-12 11-17 11-23 0-40-17-40-41 1-30 25-55 55-55 40 0 72 32 72 72 0 50-41 91-92 91-65 0-118-52-118-116 0-83 68-150 152-150 98 0 142 79 159 125l1 3c13 35 28 75 56 83-15 30-54 55-106 55h-78zm264-102c0 57-44 102-99 102h-6c31-18 52-48 52-80v-36c0-13 16-22 31-22 14 0 22 8 22 22v14zm11-90c-6 0-11-5-11-10 0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="lane">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="snail" style="left: 26%;" viewBox="0 0 512 512">
+                        <defs></defs>
+                        <path
+                            d="M512 181a32 32 0 10-43 36v18c-7-4-15-6-23-6-10 0-21 3-30 9v-21a32 32 0 10-21 0v92l-1 5c-17-6-30-41-41-70l-1-3c-19-52-68-140-179-140C77 101 0 178 0 273c0 76 62 137 139 138h230c68 0 122-54 122-124v-14l-1-1h1v-55c14-5 23-20 21-36zm-117 6c0-6 4-11 10-11s11 5 11 11c0 5-5 10-11 10s-10-5-10-10zM205 389c29-21 47-55 47-91 0-52-42-93-93-93-42 0-76 34-76 76 0 36 26 63 61 63 15 0 30-10 36-24 4-8 8-24-9-43-4-5-11-5-15-1-5 4-5 10-1 15 7 7 9 14 6 20-3 7-12 11-17 11-23 0-40-17-40-41 1-30 25-55 55-55 40 0 72 32 72 72 0 50-41 91-92 91-65 0-118-52-118-116 0-83 68-150 152-150 98 0 142 79 159 125l1 3c13 35 28 75 56 83-15 30-54 55-106 55h-78zm264-102c0 57-44 102-99 102h-6c31-18 52-48 52-80v-36c0-13 16-22 31-22 14 0 22 8 22 22v14zm11-90c-6 0-11-5-11-10 0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="lane">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="snail" style="left: 31%;" viewBox="0 0 512 512">
+                        <defs></defs>
+                        <path
+                            d="M512 181a32 32 0 10-43 36v18c-7-4-15-6-23-6-10 0-21 3-30 9v-21a32 32 0 10-21 0v92l-1 5c-17-6-30-41-41-70l-1-3c-19-52-68-140-179-140C77 101 0 178 0 273c0 76 62 137 139 138h230c68 0 122-54 122-124v-14l-1-1h1v-55c14-5 23-20 21-36zm-117 6c0-6 4-11 10-11s11 5 11 11c0 5-5 10-11 10s-10-5-10-10zM205 389c29-21 47-55 47-91 0-52-42-93-93-93-42 0-76 34-76 76 0 36 26 63 61 63 15 0 30-10 36-24 4-8 8-24-9-43-4-5-11-5-15-1-5 4-5 10-1 15 7 7 9 14 6 20-3 7-12 11-17 11-23 0-40-17-40-41 1-30 25-55 55-55 40 0 72 32 72 72 0 50-41 91-92 91-65 0-118-52-118-116 0-83 68-150 152-150 98 0 142 79 159 125l1 3c13 35 28 75 56 83-15 30-54 55-106 55h-78zm264-102c0 57-44 102-99 102h-6c31-18 52-48 52-80v-36c0-13 16-22 31-22 14 0 22 8 22 22v14zm11-90c-6 0-11-5-11-10 0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="lane">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="snail" style="left: 29%;" viewBox="0 0 512 512">
+                        <defs></defs>
+                        <path
+                            d="M512 181a32 32 0 10-43 36v18c-7-4-15-6-23-6-10 0-21 3-30 9v-21a32 32 0 10-21 0v92l-1 5c-17-6-30-41-41-70l-1-3c-19-52-68-140-179-140C77 101 0 178 0 273c0 76 62 137 139 138h230c68 0 122-54 122-124v-14l-1-1h1v-55c14-5 23-20 21-36zm-117 6c0-6 4-11 10-11s11 5 11 11c0 5-5 10-11 10s-10-5-10-10zM205 389c29-21 47-55 47-91 0-52-42-93-93-93-42 0-76 34-76 76 0 36 26 63 61 63 15 0 30-10 36-24 4-8 8-24-9-43-4-5-11-5-15-1-5 4-5 10-1 15 7 7 9 14 6 20-3 7-12 11-17 11-23 0-40-17-40-41 1-30 25-55 55-55 40 0 72 32 72 72 0 50-41 91-92 91-65 0-118-52-118-116 0-83 68-150 152-150 98 0 142 79 159 125l1 3c13 35 28 75 56 83-15 30-54 55-106 55h-78zm264-102c0 57-44 102-99 102h-6c31-18 52-48 52-80v-36c0-13 16-22 31-22 14 0 22 8 22 22v14zm11-90c-6 0-11-5-11-10 0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="lane">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="snail" style="left: 32%;" viewBox="0 0 512 512">
+                        <defs></defs>
+                        <path
+                            d="M512 181a32 32 0 10-43 36v18c-7-4-15-6-23-6-10 0-21 3-30 9v-21a32 32 0 10-21 0v92l-1 5c-17-6-30-41-41-70l-1-3c-19-52-68-140-179-140C77 101 0 178 0 273c0 76 62 137 139 138h230c68 0 122-54 122-124v-14l-1-1h1v-55c14-5 23-20 21-36zm-117 6c0-6 4-11 10-11s11 5 11 11c0 5-5 10-11 10s-10-5-10-10zM205 389c29-21 47-55 47-91 0-52-42-93-93-93-42 0-76 34-76 76 0 36 26 63 61 63 15 0 30-10 36-24 4-8 8-24-9-43-4-5-11-5-15-1-5 4-5 10-1 15 7 7 9 14 6 20-3 7-12 11-17 11-23 0-40-17-40-41 1-30 25-55 55-55 40 0 72 32 72 72 0 50-41 91-92 91-65 0-118-52-118-116 0-83 68-150 152-150 98 0 142 79 159 125l1 3c13 35 28 75 56 83-15 30-54 55-106 55h-78zm264-102c0 57-44 102-99 102h-6c31-18 52-48 52-80v-36c0-13 16-22 31-22 14 0 22 8 22 22v14zm11-90c-6 0-11-5-11-10 0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="lane">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="snail" style="left: 27%;" viewBox="0 0 512 512">
+                        <defs></defs>
+                        <path
+                            d="M512 181a32 32 0 10-43 36v18c-7-4-15-6-23-6-10 0-21 3-30 9v-21a32 32 0 10-21 0v92l-1 5c-17-6-30-41-41-70l-1-3c-19-52-68-140-179-140C77 101 0 178 0 273c0 76 62 137 139 138h230c68 0 122-54 122-124v-14l-1-1h1v-55c14-5 23-20 21-36zm-117 6c0-6 4-11 10-11s11 5 11 11c0 5-5 10-11 10s-10-5-10-10zM205 389c29-21 47-55 47-91 0-52-42-93-93-93-42 0-76 34-76 76 0 36 26 63 61 63 15 0 30-10 36-24 4-8 8-24-9-43-4-5-11-5-15-1-5 4-5 10-1 15 7 7 9 14 6 20-3 7-12 11-17 11-23 0-40-17-40-41 1-30 25-55 55-55 40 0 72 32 72 72 0 50-41 91-92 91-65 0-118-52-118-116 0-83 68-150 152-150 98 0 142 79 159 125l1 3c13 35 28 75 56 83-15 30-54 55-106 55h-78zm264-102c0 57-44 102-99 102h-6c31-18 52-48 52-80v-36c0-13 16-22 31-22 14 0 22 8 22 22v14zm11-90c-6 0-11-5-11-10 0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="lane">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="snail" style="left: 20%;" viewBox="0 0 512 512">
+                        <defs></defs>
+                        <path
+                            d="M512 181a32 32 0 10-43 36v18c-7-4-15-6-23-6-10 0-21 3-30 9v-21a32 32 0 10-21 0v92l-1 5c-17-6-30-41-41-70l-1-3c-19-52-68-140-179-140C77 101 0 178 0 273c0 76 62 137 139 138h230c68 0 122-54 122-124v-14l-1-1h1v-55c14-5 23-20 21-36zm-117 6c0-6 4-11 10-11s11 5 11 11c0 5-5 10-11 10s-10-5-10-10zM205 389c29-21 47-55 47-91 0-52-42-93-93-93-42 0-76 34-76 76 0 36 26 63 61 63 15 0 30-10 36-24 4-8 8-24-9-43-4-5-11-5-15-1-5 4-5 10-1 15 7 7 9 14 6 20-3 7-12 11-17 11-23 0-40-17-40-41 1-30 25-55 55-55 40 0 72 32 72 72 0 50-41 91-92 91-65 0-118-52-118-116 0-83 68-150 152-150 98 0 142 79 159 125l1 3c13 35 28 75 56 83-15 30-54 55-106 55h-78zm264-102c0 57-44 102-99 102h-6c31-18 52-48 52-80v-36c0-13 16-22 31-22 14 0 22 8 22 22v14zm11-90c-6 0-11-5-11-10 0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="lane">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="snail" style="left: 34%;" viewBox="0 0 512 512">
+                        <defs></defs>
+                        <path
+                            d="M512 181a32 32 0 10-43 36v18c-7-4-15-6-23-6-10 0-21 3-30 9v-21a32 32 0 10-21 0v92l-1 5c-17-6-30-41-41-70l-1-3c-19-52-68-140-179-140C77 101 0 178 0 273c0 76 62 137 139 138h230c68 0 122-54 122-124v-14l-1-1h1v-55c14-5 23-20 21-36zm-117 6c0-6 4-11 10-11s11 5 11 11c0 5-5 10-11 10s-10-5-10-10zM205 389c29-21 47-55 47-91 0-52-42-93-93-93-42 0-76 34-76 76 0 36 26 63 61 63 15 0 30-10 36-24 4-8 8-24-9-43-4-5-11-5-15-1-5 4-5 10-1 15 7 7 9 14 6 20-3 7-12 11-17 11-23 0-40-17-40-41 1-30 25-55 55-55 40 0 72 32 72 72 0 50-41 91-92 91-65 0-118-52-118-116 0-83 68-150 152-150 98 0 142 79 159 125l1 3c13 35 28 75 56 83-15 30-54 55-106 55h-78zm264-102c0 57-44 102-99 102h-6c31-18 52-48 52-80v-36c0-13 16-22 31-22 14 0 22 8 22 22v14zm11-90c-6 0-11-5-11-10 0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="lane">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="snail" style="left: 23%;" viewBox="0 0 512 512">
+                        <defs></defs>
+                        <path
+                            d="M512 181a32 32 0 10-43 36v18c-7-4-15-6-23-6-10 0-21 3-30 9v-21a32 32 0 10-21 0v92l-1 5c-17-6-30-41-41-70l-1-3c-19-52-68-140-179-140C77 101 0 178 0 273c0 76 62 137 139 138h230c68 0 122-54 122-124v-14l-1-1h1v-55c14-5 23-20 21-36zm-117 6c0-6 4-11 10-11s11 5 11 11c0 5-5 10-11 10s-10-5-10-10zM205 389c29-21 47-55 47-91 0-52-42-93-93-93-42 0-76 34-76 76 0 36 26 63 61 63 15 0 30-10 36-24 4-8 8-24-9-43-4-5-11-5-15-1-5 4-5 10-1 15 7 7 9 14 6 20-3 7-12 11-17 11-23 0-40-17-40-41 1-30 25-55 55-55 40 0 72 32 72 72 0 50-41 91-92 91-65 0-118-52-118-116 0-83 68-150 152-150 98 0 142 79 159 125l1 3c13 35 28 75 56 83-15 30-54 55-106 55h-78zm264-102c0 57-44 102-99 102h-6c31-18 52-48 52-80v-36c0-13 16-22 31-22 14 0 22 8 22 22v14zm11-90c-6 0-11-5-11-10 0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </div>
         <div class='leg'>
+            <select>
+                <optgroup label="View">
+                    <option value="table">Table</option>
+                    <option value="track">Racetrack</option>
+                    <option selected value='both'>Both</option>
+                </optgroup>
+            </select>
             <span class='current'>0</span>
             <input type='range' min='0' max='10' step='1' value='0'>
             <button>Jump to end</button>
-            <input id='end' type='checkbox'><label for='end'>Always jump to end</label>
+            <span class='jump'>
+                <input id='end' type='checkbox'>
+                <label for='end'>Always jump to end</label>
+            </span>
         </div>
         <div class="messages">
         </div>
     </div>
     <div class="modifiers">
-        <h3>Modifiers</h3>
+        <h3>Modifiers <button>Apply all changes</button></h3>
+        <div class='legs'>
+            <label for='max'>Number of legs:</label>
+            <input id='max' min=1 size=3 type='number'>
+            <button class='apply' disabled>Apply</button>
+        </div>
         <div class="coaching-strategies">
-            <h4>Coaching Strategies</h4>
-            <div class="properties">
+            <h4>
+                <span>
+                    Coaching Strategies</span>
                 <select>
+                    <optgroup label='Strategy'></optgroup>
                 </select>
+            </h4>
+            <div class="displays">
+                <div>0</div>
+                <div>0</div>
+                <div>0</div>
+                <div>0</div>
+                <div>0</div>
+                <div>0</div>
+                <div>0</div>
+                <div>0</div>
+                <div>0</div>
+                <div>0</div>
+                <span>100</span>
+            </div>
+            <div class="sliders">
+                <input min=0 max=100 step=10 type=range orient=vertical>
+                <input min=0 max=100 step=10 type=range orient=vertical>
+                <input min=0 max=100 step=10 type=range orient=vertical>
+                <input min=0 max=100 step=10 type=range orient=vertical>
+                <input min=0 max=100 step=10 type=range orient=vertical>
+                <input min=0 max=100 step=10 type=range orient=vertical>
+                <input min=0 max=100 step=10 type=range orient=vertical>
+                <input min=0 max=100 step=10 type=range orient=vertical>
+                <input min=0 max=100 step=10 type=range orient=vertical>
+                <input min=0 max=100 step=10 type=range orient=vertical>
+                <div>Total:</div>
             </div>
             <button disabled class='apply'>Apply</button>
         </div>
         <div class="snail-types">
-            <h4>Snail Types</h4>
-            <div class="properties">
+            <h4>
+                <span>
+                    <button title='Expand'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <defs />
+                            <path fill="none" d="M0 0h24v24H0V0z" />
+                            <path d="M6 20l2 2 10-10L8 2 6 4l8 8z" />
+                        </svg>
+                    </button> Snail Types</span>
                 <select>
+                    <optgroup label="Type"></optgroup>
                 </select>
+            </h4>
+            <div class="properties">
+                <div class='description'>
+                    <h5>Description</h5>
+                    <textarea rows=2></textarea>
+                </div>
+                <div class='drag'>
+                    <b>Drag coefficient:</b> <input type=number max=99 min=1>
+                </div>
+                <div class='function'>
+                    <h5>Function</h5>
+                    <div class='code'></div>
+                </div>
+            </div>
+            <button disabled class='apply'>Apply</button>
+        </div>
+        <div class="snails">
+            <h4>
+                <span>Snail Attributes</span>
+                <select>
+                    <optgroup label="Snail"></optgroup>
+                </select>
+            </h4>
+            <div class="properties">
+                <div class="name">
+                    <b>Name:</b> <input type=text>
+                </div>
+                <div class='type'>
+                    <b>Type:</b> <span>funky</span>
+                </div>
+                <div class='strategy'>
+                    <b>Coaching strategy:</b> <select></select>
+                </div>
+                <div class='weight'>
+                    <b>Weight:</b> <input min=1 max=99 type=number>
+                </div>
+                <div class='wins'>
+                    <b>Wins:</b> <input min=0 type=number>
+                </div>
             </div>
             <button disabled class='apply'>Apply</button>
         </div>

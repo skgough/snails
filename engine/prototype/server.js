@@ -19,8 +19,8 @@ const fileTypes = [
         contentType: 'application/json'
     },
     {
-        extension: 'ico',
-        contentType: 'image/x-icon'
+        extension: 'png',
+        contentType: 'image/png'
     }
 ]
 
@@ -30,6 +30,7 @@ const server = http.createServer(function (req, res) {
         let file = __dirname + ((req.url === '/') ? '/index.html' : req.url)
         let extension = (req.url === '/') ? 'html' : req.url.split('.')[1]
         let contentType = fileTypes.find(fileType => fileType.extension === extension).contentType
+        res.setHeader("Cache-Control","no-store")
         res.setHeader("Content-Type", contentType)
         res.writeHead(200)
         fs.createReadStream(file, "UTF-8").pipe(res)

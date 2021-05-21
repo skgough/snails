@@ -3,35 +3,127 @@ body {
     height: 100vh;
     margin: 0;
     font-family: sans-serif;
+    font-size: 14px;
+    user-select: none;
 }
 label {
     user-select: none;
     font-size: .83333rem;
     text-align: center;
 }
+h5 {
+    margin: .5em 0;
+}
 .output {
     flex: 2;
     display: flex;
     flex-direction: column;
+    min-width: 32.75rem;
 }
-.output table {
+.results.track table {
+    display: none
+}
+.results.table .race {
+    display: none
+}
+.results.both {
+    display: flex;
+}
+.results.both table {
+    flex: 0;
+}
+.results.both .race {
+    flex: 1;
+}
+
+.results table {
     border-collapse: collapse;
+    user-select: text;
+    width: 100%;
 }
-.output table tr:nth-child(odd) td {
+.results table tr:nth-child(odd) td {
     background: hsl(220, 15%, 95%)
 }
-.output table tr:nth-child(even) td {
+.results table tr:nth-child(even) td {
     background: hsl(220, 15%, 85%)
 }
-.output table td {
-    line-height: 1.5;
+.results table tr > * {
+    border-right: 1px solid black;
+    white-space: nowrap;
+    padding: 0;
+    text-align: center;
 }
+.results table tr > * {
+    line-height: 1.5;
+    padding: 0 1ex;
+}
+.results table tr > :last-child {
+    border: 0;
+}
+.results table th {
+    height: 1.5rem;
+    background: black;
+    color: white;
+}
+.results.both table td {
+    height: 32px;
+}
+.results .race {
+    position: relative;
+    margin: 0 2rem;
+}
+.results .race .header {
+    height: 1.5rem;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+.results .race::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -2rem;
+    width: 2rem;
+    height: 100%;
+    background: lightgreen;
+}
+.results .race::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -2rem;
+    width: 2rem;
+    height: 100%;
+    background-image: linear-gradient(45deg, black 25%, transparent 25%), linear-gradient(-45deg, black 25%, transparent 25%), linear-gradient(45deg, transparent 75%, black 75%), linear-gradient(-45deg, transparent 75%, black 75%);
+    background-size: 1rem 1rem;
+    background-position: 0 0, 0 .5rem, .5rem -.5rem, -.5rem 0;
+}
+
+.results .race .lane {
+    position: relative;
+    height: 2rem;
+}
+.results .race .lane:nth-child(odd) {
+    background: hsl(220, 15%, 85%)
+}
+.results .race .lane:nth-child(even) {
+    background: hsl(220, 15%, 95%)
+}
+.results .race .lane svg {
+    position: absolute;
+    height: 100%;
+    transform: translateX(-100%);
+}
+
 .output .leg {
     margin-top: auto;
-    padding: .5em 1em;
-    max-width: 800px;
+    padding: .5em .5ex;
     display: flex;
     align-items: center;
+}
+.output .leg > * {
+    margin: 0 .5ex;
 }
 .output .leg input[type=range] {
     flex: 1;
@@ -43,6 +135,7 @@ label {
     background: #333;
     color: white;
     padding: 1em;
+    user-select: text;
 }
 .output .messages code {
     margin: 0;
@@ -54,11 +147,13 @@ label {
     flex-direction: column;
     border-left: 2px solid black;
     flex: 1;
-    padding: 1em;
+    padding: 1em 1em .5em 1em;
     max-width: 500px;
     overflow-y: auto;
 }
 .modifiers h3 {
+    display: flex;
+    justify-content: space-between;
     margin: 0
 }
 .modifiers > div {
@@ -66,9 +161,172 @@ label {
     display: flex;
     flex-direction: column;
 }
+.modifiers.expanded-within {
+    flex: 3;
+    max-width: unset;
+}
+.modifiers.expanded-within > div:not(.expanded) {
+    flex: 0;
+}
+.modifiers.expanded-within > div:not(.expanded,.legs) > :not(h4) {
+    display: none;
+}
+.modifiers.expanded-within > div:not(.expanded,.legs) > h4 > select {
+    display: none;
+}
+.expanded h4 button {
+    transform: rotate(90deg)
+}
+
+.modifiers .legs {
+    display: inline;
+    flex: 0;
+}
+#max {
+    width: 3em;
+    font-family: monospace;
+}
 .modifiers > div h4 {
+    display: flex;
+    flex: 0;
+    justify-content: space-between;
     margin: .5em 0;
+}
+.modifiers > div h4 button {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    width: .75rem;
+    height: .75rem;
+    cursor: pointer;
+    vertical-align: baseline;
 }
 .modifiers button.apply {
     margin-top: auto;
+}
+.modifiers .description textarea {
+    font-size: .8rem;
+    line-height: 1.5;
+    box-sizing: border-box;
+    background: hsl(220, 15%, 95%);
+    width: 100%;
+    border: 0;
+    padding:1ex;
+    font-family: sans-serif;
+    resize: vertical;
+    user-select: text;
+}
+.modifiers .description textarea:focus {
+    outline: none;
+    box-shadow:  0 0 0 1px inset lightblue;
+}
+.properties {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.properties > .function {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.snails .properties > div {
+    margin: .25rem 0;
+}
+.snails .properties .weight input,
+.snails .properties .wins input {
+    width: 4em;
+    font-family: monospace
+}
+
+.code {
+    flex: 1;
+    position: relative;
+    overflow: auto;
+    background: hsl(220, 15%, 95%);
+    font-size: 0;
+    margin-bottom: .5rem;
+}
+.code:focus-within {
+    box-shadow:  0 0 0 1px inset lightblue;
+}
+
+.editor {
+    color: transparent;
+    background-color: transparent;
+    box-sizing: border-box;
+    font-family: monospace;
+    overflow: hidden;
+    white-space: pre;
+    resize: none;
+    border: 0;
+    min-width: 100%;
+    min-height: 100%;
+    caret-color: black;
+}
+.editor:focus {
+    outline: none;   
+}
+
+.editor,.highlight {
+    padding:1ex;
+    margin: 0;
+    tab-size: 4;
+    line-height: 1.5;
+    font-size: 14px;
+}
+.highlight {
+    pointer-events: none;
+}
+input[type=range][orient=vertical] {
+    -webkit-appearance: slider-vertical
+}
+.displays {
+    display: flex;
+}
+.displays > div {
+    flex: 1;
+    height: 1rem;
+    margin-bottom: 2px;
+    font-family: monospace;
+    text-align: center;
+}
+.displays > span {
+    width: 3ch;
+    font-family: monospace;
+    text-align: right;
+}
+
+.sliders {
+    display: flex;
+    margin-bottom: 1ex;
+}
+.sliders > input {
+    flex: 1;
+    width: 100%;
+    margin: 0;
+}
+.sliders > div {
+    width: 3ch;
+    flex-grow: 0;
+    writing-mode: vertical-lr;
+    text-align: right;
+    vertical-align: bottom;
+    transform: rotate(180deg);
+}
+.properties b {
+    font-size: 0.83em;
+}
+
+@media(min-height:800px) {
+    .results.both {
+        display: block;
+    }
+    .results.both table td {
+        height: unset;
+    }
+}
+.modifiers .legs {
+    display: none;
 }
