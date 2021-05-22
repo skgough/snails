@@ -1,9 +1,10 @@
-import { goToLeg, race } from "../engine.js"
+import { goToLeg, race, rollDice } from "../engine.js"
 import Editor from "./editor.js"
 
 const pageSetup = async () => {
     window.unsavedChanges = false
     window.race = race
+    window.rollDice = rollDice
 
     let leg = 0
 
@@ -11,9 +12,9 @@ const pageSetup = async () => {
     let coachingStrategies = await get('../parameters/coachingStrategies.json')
     let snailTypes = await get('../parameters/snailTypes.json')
     let snails = await get('../parameters/snails.json')
+    window.snailTypes = snailTypes
 
     const parameters = [snails, coachingStrategies, snailTypes]
-    race.init(parameters)
 
     const resultsView = document.querySelector('.results')
     const resultsViewSelect = document.querySelector('.leg select')
@@ -28,15 +29,6 @@ const pageSetup = async () => {
         resultsView.className = `results ${prefferedView}`
         resultsViewSelect.value = prefferedView
     }
-
-    legRange.max = race.legs.length - 1
-    if (jumpToEnd) {
-        leg = race.legs.length - 1
-        legRange.value = leg
-        endCheckBox.checked = true
-    }
-    goToLeg(leg, message, parameters)
-    legCurrent.innerText = leg
 
     resultsViewSelect.addEventListener('change', () => {
         resultsView.className = `results ${resultsViewSelect.value}`
@@ -298,6 +290,17 @@ const pageSetup = async () => {
                         )
                     }).then(location.reload()))))
     }
+    
+    race.init(parameters)
+
+    legRange.max = race.legs.length - 1
+    if (jumpToEnd) {
+        leg = race.legs.length - 1
+        legRange.value = leg
+        endCheckBox.checked = true
+    }
+    goToLeg(leg, message, parameters)
+    legCurrent.innerText = leg
 }
 
 const get = async (fileName) => {
@@ -322,7 +325,7 @@ const postChange = (data) => {
 const message = (text) => {
     let messages = document.querySelector('.output .messages')
     let code = document.createElement('code')
-    code.innerText = text
+    code.innerHTML = text
     messages.appendChild(code)
     messages.scrollTop = messages.scrollHeight
 }

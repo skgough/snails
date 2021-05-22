@@ -74,6 +74,7 @@ h5 {
 }
 .results .race .header {
     height: 1.5rem;
+    line-height: 1.5rem;
     font-weight: bold;
     background-color: black;
     color: white;
@@ -139,6 +140,8 @@ h5 {
 }
 .output .messages code {
     margin: 0;
+    tab-size: 4;
+    white-space: pre-wrap;
     line-height: 1.5;
     display: block;
 }
@@ -329,4 +332,8 @@ input[type=range][orient=vertical] {
 }
 .modifiers .legs {
     display: none;
+}
+
+.messages span.name {
+    color: lightgreen
 }

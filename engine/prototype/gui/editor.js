@@ -8,21 +8,21 @@ class Editor {
         this.editor = document.createElement('textarea')
         this.editor.setAttribute('spellcheck', 'false')
         this.editor.classList.add('editor')
-        this.editor.addEventListener('keydown', function (e) {
-            if (e.key == 'Tab') {
-                e.preventDefault();
-                var start = this.selectionStart;
-                var end = this.selectionEnd;
+        // this.editor.addEventListener('keydown', function (e) {
+        //     if (e.key == 'Tab') {
+        //         e.preventDefault();
+        //         var start = this.selectionStart;
+        //         var end = this.selectionEnd;
 
-                // set textarea value to: text before caret + tab + text after caret
-                this.value = this.value.substring(0, start) +
-                    "\t" + this.value.substring(end);
+        //         // set textarea value to: text before caret + tab + text after caret
+        //         this.value = this.value.substring(0, start) +
+        //             "    " + this.value.substring(end);
 
-                // put caret at right position again
-                this.selectionStart =
-                    this.selectionEnd = start + 1;
-            }
-        })
+        //         // put caret at right position again
+        //         this.selectionStart =
+        //             this.selectionEnd = start + 1;
+        //     }
+        // })
         this.editor.addEventListener('input', () => {
             const scrollPosition = [this.container.scrollTop, this.container.scrollLeft]
             const lines = this.editor.value.split('\n').length

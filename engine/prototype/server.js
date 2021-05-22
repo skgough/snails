@@ -29,11 +29,17 @@ const server = http.createServer(function (req, res) {
         console.log(`GET ${req.url}`)
         let file = __dirname + ((req.url === '/') ? '/index.html' : req.url)
         let extension = (req.url === '/') ? 'html' : req.url.split('.')[1]
-        let contentType = fileTypes.find(fileType => fileType.extension === extension).contentType
-        res.setHeader("Cache-Control","no-store")
-        res.setHeader("Content-Type", contentType)
-        res.writeHead(200)
-        fs.createReadStream(file, "UTF-8").pipe(res)
+        try {
+            let contentType = fileTypes.find(fileType => fileType.extension === extension).contentType
+            res.setHeader("Cache-Control","no-store")
+            res.setHeader("Content-Type", contentType)
+            res.writeHead(200)
+            fs.createReadStream(file, "UTF-8").pipe(res)
+        } catch(error) {
+            console.log(error)
+            res.writeHead(500)
+            res.end(`GET ${req.url} \n500: Internal server error`)
+        }
     } else if (req.method === "POST") {
         console.log(`POST ${req.url}`)
         let data = '';
