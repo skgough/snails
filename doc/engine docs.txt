@@ -13,3 +13,18 @@ n = ----------
     scalar + 1
 
 the exponent needs to be odd. large exponents create a sharper cutoff (less range, steeper slope).
+
+
+thoughts
+---------
+implement "inertia" so that when heavy/slow snails are slowed down its not as severe a punishment
+play around with concept of "tanks"
+fast snails are affected a lot by kinitec energy loss
+maybe slow snails have extra ability roll
+
+
+winning:
+so when winning getting all snails is too brutal
+instead you get to pick one to steal from the roster of losers
+this disincentives people running multiple snails per race from different wallets
+instead of getting all of them now its more like "trading up"

@@ -119,7 +119,7 @@ const updateTable = (message,leg) => {
     for (const index in rows) {
         const row = rows[index]
         const data = row.querySelectorAll('td')
-        data[0].innerText = leg.contestants[index].rank ? leg.contestants[index].rank + 1: 0
+        data[0].innerText = leg.contestants[index].rank + 1
         data[1].innerText = leg.contestants[index].snail.name
         data[2].innerText = leg.contestants[index].snail.type.name
         data[3].innerText = leg.contestants[index].velocity.toFixed(2)
@@ -133,7 +133,7 @@ const updateTrack = (message,leg) => {
     }
 }
 
-// likelihood is a percentage as an number from 0 to 100
+// likelihood is a percentage as a number from 0 to 100
 const rollDice = (likelihood) => {
     if (likelihood >= 100) return true
     if (likelihood <= 0) return false
