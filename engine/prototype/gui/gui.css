@@ -16,9 +16,11 @@ h5 {
 }
 .output {
     flex: 2;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    min-width: 32.75rem;
+    overflow: visible;
+    resize: horizontal;
 }
 .results.track table {
     display: none
@@ -148,10 +150,8 @@ h5 {
 .modifiers {
     display: flex;
     flex-direction: column;
-    border-left: 2px solid black;
     flex: 1;
     padding: 1em 1em .5em 1em;
-    max-width: 500px;
     overflow-y: auto;
 }
 .modifiers h3 {
@@ -184,6 +184,13 @@ h5 {
 .modifiers .legs {
     display: inline;
     flex: 0;
+}
+.modifiers .coaching-strategies {
+    flex: 0;
+}
+.modifiers .coaching-strategies > div {
+    max-width: 400px;
+    margin: auto;
 }
 #max {
     width: 3em;
@@ -232,6 +239,18 @@ h5 {
     flex: 1;
     display: flex;
     flex-direction: column;
+    margin-bottom: .5em;
+}
+.CodeMirror {
+    height: auto;
+    flex: 1;
+}
+.CodeMirror:focus, .CodeMirror:focus-within {
+    outline: none;
+    box-shadow:  0 0 0 1px lightblue;
+}
+.modifiers > .snails {
+    flex: 0;
 }
 
 .snails .properties > div {
@@ -241,46 +260,6 @@ h5 {
 .snails .properties .wins input {
     width: 4em;
     font-family: monospace
-}
-
-.code {
-    flex: 1;
-    position: relative;
-    overflow: auto;
-    background: hsl(220, 15%, 95%);
-    font-size: 0;
-    margin-bottom: .5rem;
-}
-.code:focus-within {
-    box-shadow:  0 0 0 1px inset lightblue;
-}
-
-.editor {
-    color: transparent;
-    background-color: transparent;
-    box-sizing: border-box;
-    font-family: monospace;
-    overflow: hidden;
-    white-space: pre;
-    resize: none;
-    border: 0;
-    min-width: 100%;
-    min-height: 100%;
-    caret-color: black;
-}
-.editor:focus {
-    outline: none;   
-}
-
-.editor,.highlight {
-    padding:1ex;
-    margin: 0;
-    tab-size: 4;
-    line-height: 1.5;
-    font-size: 14px;
-}
-.highlight {
-    pointer-events: none;
 }
 input[type=range][orient=vertical] {
     -webkit-appearance: slider-vertical
@@ -318,18 +297,32 @@ input[type=range][orient=vertical] {
     vertical-align: bottom;
     transform: rotate(180deg);
 }
+.ult {
+    display: flex;
+    width: calc(100% - 3ch);
+    margin-bottom: .5rem;
+}
+.ult > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ult input~label {
+    opacity: 0;
+}
+.ult > div:hover label {
+    opacity: .75;
+}
+.ult input:checked~label {
+    opacity: 1;
+}
+
 .properties b {
     font-size: 0.83em;
 }
 
-@media(min-height:800px) {
-    .results.both {
-        display: block;
-    }
-    .results.both table td {
-        height: unset;
-    }
-}
 .modifiers .legs {
     display: none;
 }

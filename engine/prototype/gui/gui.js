@@ -1,6 +1,14 @@
 import { goToLeg, race, rollDice } from "../engine.js"
 import Editor from "./editor.js"
 
+const message = (text) => {
+    let messages = document.querySelector('.output .messages')
+    let code = document.createElement('code')
+    code.innerHTML = text
+    messages.appendChild(code)
+    messages.scrollTop = messages.scrollHeight
+}
+
 const pageSetup = async () => {
     window.unsavedChanges = false
     window.race = race
@@ -40,7 +48,8 @@ const pageSetup = async () => {
         legCurrent.innerText = leg
     })
     jumpButton.addEventListener('click', () => {
-        leg = numberOfLegs
+        leg = race.legs.length - 1
+        legRange.value = leg
         goToLeg(leg, message, parameters)
         legRange.value = leg
         legCurrent.innerText = leg
@@ -76,6 +85,7 @@ const pageSetup = async () => {
 
     const csSelect = document.querySelector('.coaching-strategies select')
     const csDisplays = Array.from(document.querySelectorAll('.coaching-strategies .displays div'))
+    const ultRollSelectors = Array.from(document.querySelectorAll('.coaching-strategies .ult input'))
     const csSliders = Array.from(document.querySelectorAll('.coaching-strategies .sliders input'))
     const csTotal = document.querySelector('.coaching-strategies .displays span')
     const csApply = document.querySelector('.coaching-strategies button.apply')
@@ -120,6 +130,7 @@ const pageSetup = async () => {
     }
 
     let csActive = coachingStrategies.find(strat => strat.name === csSelect.value)
+    ultRollSelectors[csActive.ultRoll].checked = true
     for (const index in csActive.weights) {
         csDisplays[index].innerText = csActive.weights[index]
         csSliders[index].value = csActive.weights[index]
@@ -127,11 +138,18 @@ const pageSetup = async () => {
     }
     csSelect.addEventListener('change', () => {
         csActive = coachingStrategies.find(strat => strat.name === csSelect.value)
+        ultRollSelectors[csActive.ultRoll].checked = true
         for (const index in csActive.weights) {
             csDisplays[index].innerText = csActive.weights[index]
             csSliders[index].value = csActive.weights[index]
         }
     })
+    for (const index in ultRollSelectors) {
+        ultRollSelectors[index].addEventListener('input', () => {
+            csActive.ultRoll = parseInt(index)
+            csApply.removeAttribute('disabled')
+        })
+    }
     for (const index in csSliders) {
         csSliders[index].addEventListener('input', () => {
             const value = parseInt(csSliders[index].value)
@@ -151,7 +169,6 @@ const pageSetup = async () => {
             }
         })
     }
-
 
     let stActive = snailTypes.find(strat => strat.name === stSelect.value)
     stDescription.value = stActive.description
@@ -173,11 +190,12 @@ const pageSetup = async () => {
         stApply.removeAttribute('disabled')
         unsavedChanges = true
     })
-    stFunction.container.addEventListener('input', () => {
+    stFunction.textarea.addEventListener('input', () => {
         stActive.function = stFunction.value
         stApply.removeAttribute('disabled')
         unsavedChanges = true
     })
+    window.stFunction = stFunction
 
     let indvSnailActive = snails.find(snail => snail.name === indvSnailSelect.value)
     indvSnailName.value = indvSnailActive.name
@@ -247,11 +265,9 @@ const pageSetup = async () => {
             expanding.classList.add('expanded')
             container.classList.add('expanded-within')
         }
-        const event = new Event('input')
-        const editors = document.querySelectorAll('.function .code')
-        editors.forEach(editor => editor.dispatchEvent(event))
     })
     )
+    
     const postAllChanges = () => {
         fetch('/', {
             method: "POST",
@@ -322,12 +338,5 @@ const postChange = (data) => {
         })
 }
 
-const message = (text) => {
-    let messages = document.querySelector('.output .messages')
-    let code = document.createElement('code')
-    code.innerHTML = text
-    messages.appendChild(code)
-    messages.scrollTop = messages.scrollHeight
-}
-
 pageSetup()
+

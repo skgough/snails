@@ -129,7 +129,8 @@ const updateTable = (message,leg) => {
 const updateTrack = (message,leg) => {
     const snails = Array.from(document.querySelectorAll('.lane .snail'))
     for (const index in snails) {
-        snails[index].style.left = leg.contestants[index].position + '%'
+        const distance = (leg.contestants[index].position > 100) ? 100 : leg.contestants[index].position
+        snails[index].style.left = distance + '%'
     }
 }
 

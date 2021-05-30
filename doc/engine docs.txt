@@ -28,3 +28,9 @@ so when winning getting all snails is too brutal
 instead you get to pick one to steal from the roster of losers
 this disincentives people running multiple snails per race from different wallets
 instead of getting all of them now its more like "trading up"
+
+add "Volatility"
+speed: "throw rod" failure
+       function of weight (low weight high volatitity)
+ability: "hurt itself in confusion" failure
+         function of weight (high weight high Volatility1)

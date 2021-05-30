@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width">
     <title>Snails</title>
 
-    <script src="./gui/prism.js"></script>
-    <link rel='stylesheet' href='./gui/prism.css'>
+    <script src="./gui/codemirror/lib/codemirror.js"></script>
+    <script src="./gui/codemirror/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="./gui/codemirror/lib/codemirror.css">
+    <link rel='stylesheet' href="./gui/codemirror/theme/xq-light.css">
 
     <link rel="stylesheet" href="./gui/gui.css">
     <link rel="shortcut icon" href="./favicon.png">
@@ -201,37 +203,45 @@
         </div>
         <div class="coaching-strategies">
             <h4>
-                <span>
-                    Coaching Strategies</span>
+                <span>Strategies</span>
                 <select>
                     <optgroup label='Strategy'></optgroup>
                 </select>
             </h4>
-            <div class="displays">
-                <div>0</div>
-                <div>0</div>
-                <div>0</div>
-                <div>0</div>
-                <div>0</div>
-                <div>0</div>
-                <div>0</div>
-                <div>0</div>
-                <div>0</div>
-                <div>0</div>
-                <span>100</span>
-            </div>
-            <div class="sliders">
-                <input min=0 max=100 step=10 type=range orient=vertical>
-                <input min=0 max=100 step=10 type=range orient=vertical>
-                <input min=0 max=100 step=10 type=range orient=vertical>
-                <input min=0 max=100 step=10 type=range orient=vertical>
-                <input min=0 max=100 step=10 type=range orient=vertical>
-                <input min=0 max=100 step=10 type=range orient=vertical>
-                <input min=0 max=100 step=10 type=range orient=vertical>
-                <input min=0 max=100 step=10 type=range orient=vertical>
-                <input min=0 max=100 step=10 type=range orient=vertical>
-                <input min=0 max=100 step=10 type=range orient=vertical>
-                <div>Total:</div>
+            <div>
+                <div class='ult'>
+                    <div>
+                        <input type=radio id=0 value=0 name=ult><label for=0>Ult roll</label>
+                    </div>
+                    <div>
+                        <input type=radio id=1 value=0 name=ult><label for=1>Ult roll</label>
+                    </div>
+                    <div>
+                        <input type=radio id=2 value=0 name=ult><label for=2>Ult roll</label>
+                    </div>
+                    <div>
+                        <input type=radio id=3 value=0 name=ult><label for=3>Ult roll</label>
+                    </div>
+                    <div>
+                        <input type=radio id=4 value=0 name=ult><label for=4>Ult roll</label>
+                    </div>
+                </div>
+                <div class="displays">
+                    <div>0</div>
+                    <div>0</div>
+                    <div>0</div>
+                    <div>0</div>
+                    <div>0</div>
+                    <span>100</span>
+                </div>
+                <div class="sliders">
+                    <input min=0 max=100 step=10 type=range orient=vertical>
+                    <input min=0 max=100 step=10 type=range orient=vertical>
+                    <input min=0 max=100 step=10 type=range orient=vertical>
+                    <input min=0 max=100 step=10 type=range orient=vertical>
+                    <input min=0 max=100 step=10 type=range orient=vertical>
+                    <div>Total:</div>
+                </div>
             </div>
             <button disabled class='apply'>Apply</button>
         </div>
@@ -258,8 +268,8 @@
                     <b>Drag coefficient:</b> <input type=number max=99 min=1>
                 </div>
                 <div class='function'>
-                    <h5>Function</h5>
-                    <div class='code'></div>
+                    <h5>Ability</h5>
+                    <textarea class='code'></textarea>
                 </div>
             </div>
             <button disabled class='apply'>Apply</button>
