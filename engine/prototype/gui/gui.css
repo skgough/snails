@@ -19,8 +19,6 @@ h5 {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    overflow: visible;
-    resize: horizontal;
 }
 .results.track table {
     display: none
