@@ -43,6 +43,7 @@ var Resizer = function () {
     Resizer.createHandle = function (handleClass) {
         var el = document.createElement('div');
         el.dataset.rzHandle = handleClass || '';
+        el.innerText = '||'
         el.style.cursor = 'ew-resize';
         return el;
     };
@@ -105,7 +106,7 @@ var Resizer = function () {
         return this.handleX = value;
     };
     Resizer.prototype.onDown = function (e) {
-        e.preventDefault();
+        // e.preventDefault();
         if (!this.dragging) {
             this.offsetX = e.offsetX;
             this.setHandleX(e.pageX - this.container.getBoundingClientRect().left - this.offsetX);
@@ -113,14 +114,14 @@ var Resizer = function () {
         }
     };
     Resizer.prototype.onUp = function (e) {
-        e.preventDefault();
+        // e.preventDefault();
         if (this.dragging) {
             this.setHandleX(e.pageX - this.container.getBoundingClientRect().left - this.offsetX);
             this.setDragging(false);
         }
     };
     Resizer.prototype.onMove = function (e) {
-        e.preventDefault();
+        // e.preventDefault();
         if (this.dragging) {
             var x = e.pageX - this.container.getBoundingClientRect().left - this.offsetX;
             if (e.shiftKey) {
