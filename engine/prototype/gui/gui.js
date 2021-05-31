@@ -1,6 +1,8 @@
 import { goToLeg, race, rollDice } from "../engine.js"
 import Editor from "./editor.js"
 
+let resizer = new Resizer('body')
+
 const message = (text) => {
     let messages = document.querySelector('.output .messages')
     let code = document.createElement('code')
@@ -16,7 +18,6 @@ const pageSetup = async () => {
 
     let leg = 0
 
-    let numberOfLegs = parseInt(await get('../parameters/numLegs.json'))
     let coachingStrategies = await get('../parameters/coachingStrategies.json')
     let snailTypes = await get('../parameters/snailTypes.json')
     let snails = await get('../parameters/snails.json')
@@ -64,7 +65,6 @@ const pageSetup = async () => {
 
     const numberOfLegsModifier = document.querySelector('.modifiers .legs input[type=number]')
     const numberOfLegsApply = document.querySelector('.modifiers .legs button')
-    numberOfLegsModifier.value = numberOfLegs
     numberOfLegsModifier.addEventListener('input', () => {
         numberOfLegs = parseInt(numberOfLegsModifier.value)
         legRange.max = parseInt(numberOfLegs)

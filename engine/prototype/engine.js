@@ -1,8 +1,8 @@
 const goToLeg = (num, message) => {
     message(`Leg: ${num}`)
     race.legs[num].events.forEach(event => message(`\t${event}`))
-    updateTrack(message,race.legs[num])
-    updateTable(message,race.legs[num])
+    updateTrack(race.legs[num])
+    updateTable(race.legs[num])
 }
 
 const race = {
@@ -35,7 +35,6 @@ const race = {
                 acceleration: getAcceleration(snail.weight,type)
             })
         }
-        let over = false
         let i = 0
         while(!race.over) {
             const leg = {
@@ -80,19 +79,26 @@ const race = {
             i++
 
             // sort contestants with last place at index 0
+                           // stack overflow says this is how you copy an array
             const sorted = leg.contestants.slice()
-            if (i > 0) sorted.sort(function(a,b) { return a.position - b.position})
+            if (i > 0) sorted.sort(function(a,b) { return a.position - b.position })
 
+            // copy sorted array and reverse the order to get first place at index 0
             const ranked = sorted.slice().reverse()
             for (const index in ranked) {
+                // copy over the ranks to the leg master copy contestants
                 const match = leg.contestants.find(snail => snail.position === ranked[index].position)
                 match.rank = parseInt(index)
+            }
+            if (race.over) {
+                leg.events.push(`${ranked[0].snail.name} won!`)
             }
 
             // run the ability functions starting with the snail in last place
             for (const index in sorted) {
-                
+                // find the snail's "physical" location in the race arena by looking it up by name in the leg contestants array
                 const lane = leg.contestants.indexOf(leg.contestants.find(contestant => contestant.snail.name === sorted[index].snail.name))
+                // above and below are "physically" above and below the current snail in the race arena; some abilities use these
                 sorted[index].adjacent = {
                     above: leg.contestants[lane - 1],
                     below: leg.contestants[lane + 1]
@@ -105,6 +111,7 @@ const race = {
     }
 }
 
+// check doc/engine docs.txt for an explanation of this function
 const getAcceleration = (weight,type) => {
     const normalizedWeight = (parseInt(weight) / 50) - 1
     const normalizedCd = (parseInt(type.dragCoefficient) / 50) - 1
@@ -114,7 +121,7 @@ const getAcceleration = (weight,type) => {
     return weightFactor * dragFactor
 }
 
-const updateTable = (message,leg) => {
+const updateTable = (leg) => {
     const rows = Array.from(document.querySelectorAll('.results tbody tr'))
     for (const index in rows) {
         const row = rows[index]
@@ -126,7 +133,7 @@ const updateTable = (message,leg) => {
     }
 }
 
-const updateTrack = (message,leg) => {
+const updateTrack = (leg) => {
     const snails = Array.from(document.querySelectorAll('.lane .snail'))
     for (const index in snails) {
         const distance = (leg.contestants[index].position > 100) ? 100 : leg.contestants[index].position

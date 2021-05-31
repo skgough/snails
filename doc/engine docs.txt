@@ -1,4 +1,6 @@
-acceleration factor function: (-2/3 * ( .5w + w^5 )) + 1
+acceleration factor function
+---------------------------- 
+equation: (-2/3 * ( .5w + w^5 )) + 1
 where w = weight/50 - 1
 
 .5 scales the rate at which acceleration increases within the normal range of weights (25 - 75)

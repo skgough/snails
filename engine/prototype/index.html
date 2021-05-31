@@ -9,7 +9,10 @@
     <script src="./gui/codemirror/lib/codemirror.js"></script>
     <script src="./gui/codemirror/mode/javascript/javascript.js"></script>
     <link rel="stylesheet" href="./gui/codemirror/lib/codemirror.css">
-    <link rel='stylesheet' href="./gui/codemirror/theme/xq-light.css">
+    <link rel='stylesheet' href="./gui/codemirror/theme/ttcn.css">
+
+    <script src="./gui/resizer/resizer.js"></script>
+    <link rel="stylesheet" href="./gui/resizer/resizer.css">
 
     <link rel="stylesheet" href="./gui/gui.css">
     <link rel="shortcut icon" href="./favicon.png">
@@ -184,7 +187,7 @@
                 </optgroup>
             </select>
             <span class='current'>0</span>
-            <input type='range' min='0' max='10' step='1' value='0'>
+            <input type='range' min='0' max='1' step='1' value='0'>
             <button>Jump to end</button>
             <span class='jump'>
                 <input id='end' type='checkbox'>
@@ -240,7 +243,7 @@
                     <input min=0 max=100 step=10 type=range orient=vertical>
                     <input min=0 max=100 step=10 type=range orient=vertical>
                     <input min=0 max=100 step=10 type=range orient=vertical>
-                    <div>Total:</div>
+                    <div>Stamina total:</div>
                 </div>
             </div>
             <button disabled class='apply'>Apply</button>

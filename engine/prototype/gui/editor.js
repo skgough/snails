@@ -5,7 +5,7 @@ class Editor {
             lineNumbers: true,
             smartIndent: true,
             indentWithTabs: true,
-            theme:'xq-light',
+            theme:'ttcn',
             mode:  "javascript"
         })
         this.editor.on('change', () => {
