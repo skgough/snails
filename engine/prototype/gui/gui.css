@@ -19,6 +19,7 @@ h5 {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    max-width: 90vw;
 }
 .results.track table {
     display: none
@@ -211,6 +212,9 @@ h5 {
 }
 .modifiers button.apply {
     margin-top: auto;
+    max-width: 400px;
+    width: 100%;
+    align-self: center;
 }
 .modifiers .description textarea {
     font-size: .8rem;

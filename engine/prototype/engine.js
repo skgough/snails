@@ -81,6 +81,11 @@ const race = {
             // sort contestants with last place at index 0
                            // stack overflow says this is how you copy an array
             const sorted = leg.contestants.slice()
+            /*
+                the default sort for Array.sort() is alphabetical even if it's an array of numbers (stupid),
+                so you have to give a test function to use if you want different behavior. 
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+            */
             if (i > 0) sorted.sort(function(a,b) { return a.position - b.position })
 
             // copy sorted array and reverse the order to get first place at index 0
